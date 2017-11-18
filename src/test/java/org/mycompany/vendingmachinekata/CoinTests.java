@@ -22,4 +22,10 @@ public class CoinTests {
         int choice=3;
         assertEquals(3,coin.getSize(choice));
     }
+    @Test
+    public void GivenUserEntersQuarterReturnQuarterWeight(){
+        Coin coin =new Coin();
+        int choice=4;
+        assertEquals(6,coin.getSize(choice));
+    }
 }

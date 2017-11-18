@@ -18,6 +18,9 @@ private int quarterSize=6;
        else if(choice==3){
            size=this.dimeSize;
         }
+        else{
+           size=this.quarterSize;
+        }
         return size;
     }
 
