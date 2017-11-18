@@ -1,7 +1,6 @@
 package org.mycompany.vendingmachinekata;
 
 
-import static jdk.nashorn.internal.objects.NativeMath.round;
 
 /**
  * Hello world!
@@ -42,7 +41,6 @@ public class VendingMachine
         }
         else {
            double dollarValue= (double) this.value/100;
-            round(dollarValue, 2);
             String result = String.format("%.2f", dollarValue);
             return ("Value Inserted: $"+result);
 
