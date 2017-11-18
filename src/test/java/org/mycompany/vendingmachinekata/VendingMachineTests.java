@@ -39,5 +39,12 @@ public class VendingMachineTests {
 
 
     }
+    @Test
+    public void GivenUserEntersPennyThenPrintNoCoinInserted(){
+        VendingMachine vendingMachine =new VendingMachine();
+        vendingMachine.insertCoin(2);
+        assertEquals("No Coin",vendingMachine.printStatus());
+
+    }
 
 }
