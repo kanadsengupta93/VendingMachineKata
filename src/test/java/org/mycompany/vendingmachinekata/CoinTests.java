@@ -1,44 +1,19 @@
 package org.mycompany.vendingmachinekata;
-
-import junit.framework.TestCase;
 import org.junit.Test;
-import org.mycompany.vendingmachinekata.Coin;
-import org.junit.Test;
-import  org.junit.Assert.*;
-
 import static org.junit.Assert.assertEquals;
 
 public class CoinTests {
+
     @Test
-    public void GivenUserHasNotEnteredCoinReturnFalse(){
-        Coin coins=new Coin();
-        assertEquals(false, coins.getCoinStatus());
-    }
-    @Test
-    public void GivenUserEntersCoinSizeReturnCoinSize(){
+    public void GivenUserEntersPennyReturnPennyWeight(){
         Coin coin=new Coin();
-        assertEquals(5,coin.getSize(5));
-
+        int choice=1;
+        assertEquals(2,coin.getSize(choice));
     }
     @Test
-    public void GivenUserHasNotEnteredCoinPrintNoCoinEntered(){
-        Coin coin=new Coin();
-        assertEquals("No Coin",coin.printStatus());
+    public void GivenUserEntersNickelReturnNickelWeight(){
+        Coin coin =new Coin();
+        int choice=2;
+        assertEquals(5,coin.getSize(choice));
     }
-
-    @Test
-    public void GivenUserEntersCoinReturnTrue(){
-        Coin coin=new Coin();
-        coin.insertCoin();
-        assertEquals(true,coin.getCoinStatus());
-    }
-
-    @Test
-    public void GivenUserEntersCoinChangeCoinEnteredStatus(){
-        Coin coin=new Coin();
-        coin.insertCoin();
-
-        assertEquals("Coin inserted",coin.printStatus());
-    }
-
 }
