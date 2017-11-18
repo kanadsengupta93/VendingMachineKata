@@ -67,6 +67,20 @@ public class VendingMachineTests {
         assertEquals("Value Inserted: $0.25",vendingMachine.printStatus());
 
     }
+    @Test
+    public void GivenUserEnters3Quarters2Dimes1NickelThenPrintDollar(){
+        VendingMachine vendingMachine =new VendingMachine();
+        vendingMachine.insertCoin(6);
+        vendingMachine.insertCoin(6);
+        vendingMachine.insertCoin(6);
+        vendingMachine.insertCoin(3);
+        vendingMachine.insertCoin(3);
+        vendingMachine.insertCoin(5);
+
+        assertEquals("Value Inserted: $1.00",vendingMachine.printStatus());
+
+    }
+
 
 
 }
