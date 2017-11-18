@@ -14,22 +14,30 @@ public class VendingMachineTests {
     @Test
     public void GivenUserHasNotEnteredCoinPrintNoCoinEntered(){
         VendingMachine vendingMachine =new VendingMachine();
-        assertEquals("No VendingMachine", vendingMachine.printStatus());
+        assertEquals("No Coin", vendingMachine.printStatus());
     }
 
     @Test
     public void GivenUserEntersCoinReturnTrue(){
         VendingMachine vendingMachine =new VendingMachine();
-        vendingMachine.insertCoin();
+        vendingMachine.insertCoin(5);
         assertEquals(true, vendingMachine.getCoinStatus());
     }
 
     @Test
     public void GivenUserEntersCoinChangeCoinEnteredStatus(){
         VendingMachine vendingMachine =new VendingMachine();
-        vendingMachine.insertCoin();
+        vendingMachine.insertCoin(3);
 
-        assertEquals("VendingMachine inserted", vendingMachine.printStatus());
+        assertEquals("Coin inserted", vendingMachine.printStatus());
+    }
+    @Test
+    public void GivenUserEntersPennyThenRejectPenny(){
+        VendingMachine vendingMachine =new VendingMachine();
+        vendingMachine.insertCoin(2);
+        assertEquals(false,vendingMachine.getCoinStatus());
+
+
     }
 
 }

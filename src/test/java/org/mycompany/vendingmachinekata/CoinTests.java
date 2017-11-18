@@ -28,4 +28,5 @@ public class CoinTests {
         int choice=4;
         assertEquals(6,coin.getSize(choice));
     }
+
 }
