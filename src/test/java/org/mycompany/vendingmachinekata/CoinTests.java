@@ -9,7 +9,11 @@ import  org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class CoinTests {
-
+    @Test
+    public void GivenUserHasNotEnteredCoinReturnFalse(){
+        Coin coins=new Coin();
+        assertEquals(false, coins.getCoinStatus());
+    }
     @Test
     public void GivenUserEntersCoinSizeReturnCoinSize(){
         Coin coin=new Coin();
@@ -17,9 +21,24 @@ public class CoinTests {
 
     }
     @Test
-    public void GivenUserHasnotEnteredCoinPrintNoCoinEntered(){
+    public void GivenUserHasNotEnteredCoinPrintNoCoinEntered(){
         Coin coin=new Coin();
-        assertEquals("No Coin",coin.getStatus());
+        assertEquals("No Coin",coin.printStatus());
+    }
+
+    @Test
+    public void GivenUserEntersCoinReturnTrue(){
+        Coin coin=new Coin();
+        coin.insertCoin();
+        assertEquals(true,coin.getCoinStatus());
+    }
+
+    @Test
+    public void GivenUserEntersCoinChangeCoinEnteredStatus(){
+        Coin coin=new Coin();
+        coin.insertCoin();
+
+        assertEquals("Coin inserted",coin.printStatus());
     }
 
 }

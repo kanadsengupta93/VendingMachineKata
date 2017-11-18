@@ -7,14 +7,23 @@ package org.mycompany.vendingmachinekata;
 public class Coin
 {
 
-    public static boolean insertCoin= false;
+    private boolean insertCoin= false;
 
-    public int getSize(int size) {
+    public static int getSize(int size) {
         return size;
     }
 
-    public static String getStatus(){
-        if (insertCoin==false){
+    public boolean getCoinStatus(){
+
+        return this.insertCoin;
+}
+
+    public void insertCoin(){
+        this.insertCoin=true;
+    }
+
+    public String printStatus(){
+        if (this.insertCoin==false){
             return ("No Coin");
         }
         else {
