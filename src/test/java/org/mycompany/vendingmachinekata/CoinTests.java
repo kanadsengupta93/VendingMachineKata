@@ -16,4 +16,10 @@ public class CoinTests {
         assertEquals(5,coin.getSize(5));
 
     }
+    @Test
+    public void GivenUserHasnotEnteredCoinPrintNoCoinEntered(){
+        Coin coin=new Coin();
+        assertEquals("No Coin",coin.getStatus());
+    }
+
 }
