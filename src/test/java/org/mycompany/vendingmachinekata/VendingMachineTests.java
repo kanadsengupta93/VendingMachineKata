@@ -29,7 +29,7 @@ public class VendingMachineTests {
         VendingMachine vendingMachine =new VendingMachine();
         vendingMachine.insertCoin(3);
 
-        assertEquals("Coin inserted", vendingMachine.printStatus());
+        assertEquals("Value Inserted: $0.10", vendingMachine.printStatus());
     }
     @Test
     public void GivenUserEntersPennyThenRejectPenny(){
@@ -44,6 +44,13 @@ public class VendingMachineTests {
         VendingMachine vendingMachine =new VendingMachine();
         vendingMachine.insertCoin(2);
         assertEquals("No Coin",vendingMachine.printStatus());
+
+    }
+    @Test
+    public void GivenUserEntersNickelThenAcceptNickel(){
+        VendingMachine vendingMachine =new VendingMachine();
+        vendingMachine.insertCoin(5);
+        assertEquals("Value Inserted: $0.05",vendingMachine.printStatus());
 
     }
 

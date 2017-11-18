@@ -1,5 +1,8 @@
 package org.mycompany.vendingmachinekata;
 
+
+import static jdk.nashorn.internal.objects.NativeMath.round;
+
 /**
  * Hello world!
  *
@@ -24,7 +27,7 @@ public class VendingMachine
         else if(size==3){
             this.value+=coinValues[1];
         }
-        else{
+        else {
             this.value+=coinValues[2];
        }
 
@@ -38,7 +41,11 @@ public class VendingMachine
             return ("No Coin");
         }
         else {
-            return ("Coin inserted");
+           double dollarValue= (double) this.value/100;
+            round(dollarValue, 2);
+            String result = String.format("%.2f", dollarValue);
+            return ("Value Inserted: $"+result);
+
         }
     }
 
