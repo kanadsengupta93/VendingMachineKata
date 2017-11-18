@@ -12,9 +12,12 @@ private int quarterSize=6;
         if(choice==1){
            size=this.pennySize;
        }
-       if(choice==2){
+       else if(choice==2){
             size=this.nickelSize;
        }
+       else if(choice==3){
+           size=this.dimeSize;
+        }
         return size;
     }
 

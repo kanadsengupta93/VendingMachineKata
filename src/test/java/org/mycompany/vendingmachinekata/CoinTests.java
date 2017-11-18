@@ -16,4 +16,10 @@ public class CoinTests {
         int choice=2;
         assertEquals(5,coin.getSize(choice));
     }
+    @Test
+    public void GivenUserEntersDimeReturnDimeWeight(){
+        Coin coin =new Coin();
+        int choice=3;
+        assertEquals(3,coin.getSize(choice));
+    }
 }
