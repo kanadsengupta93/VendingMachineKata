@@ -54,10 +54,17 @@ public class VendingMachineTests {
 
     }
     @Test
-    public void GivenUserEntersDimeThenAcceptNickel(){
+    public void GivenUserEntersDimeThenAcceptDime(){
         VendingMachine vendingMachine =new VendingMachine();
         vendingMachine.insertCoin(3);
         assertEquals("Value Inserted: $0.10",vendingMachine.printStatus());
+
+    }
+    @Test
+    public void GivenUserEntersQuarterThenAcceptQuarter(){
+        VendingMachine vendingMachine =new VendingMachine();
+        vendingMachine.insertCoin(6);
+        assertEquals("Value Inserted: $0.25",vendingMachine.printStatus());
 
     }
 
