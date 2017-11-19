@@ -1,17 +1,14 @@
 package org.mycompany.vendingmachinekata;
 
+import java.util.ArrayList;
 
-
-/**
- * Hello world!
- *
- */
 public class VendingMachine
 {
 
     private boolean insertCoin= false;
     private int coinValues[]={5,10,25};
     private int value=0;
+    private ArrayList<Integer> returnCoins= new ArrayList<Integer>();
     public boolean getCoinStatus(){
 
         return this.insertCoin;
@@ -31,6 +28,9 @@ public class VendingMachine
        }
 
         }
+        else{
+            returnCoins.add(size);
+        }
 
     }
 
@@ -47,5 +47,8 @@ public class VendingMachine
         }
     }
 
+    public ArrayList<Integer> getCoinReturn() {
+        return this.returnCoins;
+    }
 }
 

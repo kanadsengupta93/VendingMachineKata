@@ -2,6 +2,8 @@ package org.mycompany.vendingmachinekata;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class VendingMachineTests {
@@ -78,6 +80,19 @@ public class VendingMachineTests {
         vendingMachine.insertCoin(5);
 
         assertEquals("Value Inserted: $1.00",vendingMachine.printStatus());
+
+    }
+    @Test
+    public void GivenUserEnters3PenniesRejectThemAndReturnThem(){
+        VendingMachine vendingMachine =new VendingMachine();
+        vendingMachine.insertCoin(2);
+        vendingMachine.insertCoin(2);
+        vendingMachine.insertCoin(2);
+        ArrayList<Integer> coins=new ArrayList<Integer>();
+        coins.add(2);
+        coins.add(2);
+        coins.add(2);
+        assertEquals(coins,vendingMachine.getCoinReturn());
 
     }
 
