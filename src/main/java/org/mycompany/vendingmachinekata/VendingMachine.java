@@ -1,6 +1,7 @@
 package org.mycompany.vendingmachinekata;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class VendingMachine
 {
@@ -62,8 +63,51 @@ public class VendingMachine
     public void setProductPrice(double v) {
     this.productPrice=v;
     }
+
+    public ArrayList<Integer> calculateCoins() {
+        int difference=(int)(this.value-this.productPrice);
+
+        int numberofQuarters= difference/25;
+        difference%=25;
+        int numberofDimes= difference/10;
+        difference%=10;
+
+        int numberofNickels= difference/5;
+        difference%=5;
+
+
+        int i=0;
+        while(i<numberofQuarters){
+            this.returnCoins.add(6);
+            i++;
+        }
+        i=0;
+        while(i<numberofDimes){
+           this.returnCoins.add(3);
+            i++;
+        }
+        i=0;
+        while(i<numberofNickels){
+            this.returnCoins.add(5);
+            i++;
+        }
+
+
+        Collections.sort(returnCoins);
+    return this.returnCoins;
+
+    }
+
     public double getProductPrice(){
         return this.productPrice;
+    }
+    public void dispenseProduct(){
+        if(this.enoughMoney){
+            System.out.println("Your product has been dispensed");
+            this.productPrice=0;
+            this.insertCoin=false;
+            calculateCoins();
+        }
     }
 }
 

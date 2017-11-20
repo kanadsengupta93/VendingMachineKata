@@ -109,10 +109,31 @@ public class VendingMachineTests {
     public void GivenUserHasChosenProductReturnFalseIfEnoughMoneyIsNotEntered(){
         VendingMachine vendingMachine =new VendingMachine();
         vendingMachine.setProductPrice(50);
-System.out.println(vendingMachine.getProductPrice());
         vendingMachine.insertCoin(6);
         vendingMachine.insertCoin(3);
         assertEquals(false, vendingMachine.checkEnoughMoney());
+
+
+    }
+    @Test
+    public void GivenUserEnters92CentsFor50CentsReturn1Quarter1Dime1Nickeland2Penny(){
+        VendingMachine vendingMachine =new VendingMachine();
+        vendingMachine.setProductPrice(50);
+        vendingMachine.insertCoin(6);
+        vendingMachine.insertCoin(6);
+        vendingMachine.insertCoin(6);
+        vendingMachine.insertCoin(3);
+        vendingMachine.insertCoin(5);
+        vendingMachine.insertCoin(2);
+        vendingMachine.insertCoin(2);
+        ArrayList<Integer> coins=vendingMachine.calculateCoins();
+        ArrayList<Integer> expectedCoins=new ArrayList<Integer>();
+        expectedCoins.add(0,2);
+        expectedCoins.add(1,2);
+        expectedCoins.add(2,3);
+        expectedCoins.add(3,5);
+        expectedCoins.add(4,6);
+        assertEquals(expectedCoins,coins);
 
 
     }
