@@ -7,14 +7,14 @@ public class ProductTests {
     public void GivenUserChoosesChipsReturnChipsPrice(){
        Product chips =new Product();
        double price=chips.getProductPrice(1);
-       double toCompare=.5;
+       double toCompare=50.0;
        assertEquals(toCompare,price,0);
    }
     @Test
     public void GivenUserChoosesColaReturnColaPrice(){
         Product cola =new Product();
         double price=cola.getProductPrice(2);
-        double toCompare=1.5;
+        double toCompare=150.0;
         assertEquals(toCompare,price,0);
     }
 
@@ -22,7 +22,7 @@ public class ProductTests {
     public void GivenUserChoosesCandyReturnCandyPrice(){
         Product candy =new Product();
         double price=candy.getProductPrice(3);
-        double toCompare=.65;
+        double toCompare=65.0;
         assertEquals(toCompare,price,0);
     }
 
