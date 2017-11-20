@@ -10,5 +10,20 @@ public class ProductTests {
        double toCompare=.5;
        assertEquals(toCompare,price,0);
    }
+    @Test
+    public void GivenUserChoosesColaReturnColaPrice(){
+        Product cola =new Product();
+        double price=cola.getProductPrice(2);
+        double toCompare=1.5;
+        assertEquals(toCompare,price,0);
+    }
+
+    @Test
+    public void GivenUserChoosesCandyReturnCandyPrice(){
+        Product candy =new Product();
+        double price=candy.getProductPrice(3);
+        double toCompare=.65;
+        assertEquals(toCompare,price,0);
+    }
 
 }
