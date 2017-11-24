@@ -134,8 +134,19 @@ public class VendingMachineTests {
         expectedCoins.add(3,5);
         expectedCoins.add(4,6);
         assertEquals(expectedCoins,coins);
+    }
 
+    @Test
+    public void GivenMachineExactChangeIsOffReturnExactChangeToBeFalse(){
+        VendingMachine vendingMachine=new VendingMachine();
+        assertEquals(false,vendingMachine.getExactChangeStatus());
+    }
 
+    @Test
+    public void GivenMachineExactChangeISOnReturnExactChangeToBeTrue(){
+        VendingMachine vendingMachine= new VendingMachine();
+        vendingMachine.setExactChangeStatus();
+        assertEquals(true,vendingMachine.getExactChangeStatus());
     }
 
 }
