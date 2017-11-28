@@ -28,5 +28,23 @@ public class ProductTests {
         double toCompare = 65.0;
         assertEquals(toCompare, price, 0);
     }
+    @Test
+    public void GivenUserSetsStockReturnCorrectStock(){
+        Product stock =new Product();
+        stock.setStock(1,10);
+        stock.setStock(2,15);
+        stock.setStock(3,20);
+        int chips=stock.getStock(1);
+        int cola=stock.getStock(2);
+        int candy=stock.getStock(3);
+        assertEquals(chips,10);
+        assertEquals(cola,15);
+        assertEquals(candy,20);
 
+
+    }
+    @Test
+    public void GivenUserSelectsStockReduceStockBy1(){
+        
+    }
 }
