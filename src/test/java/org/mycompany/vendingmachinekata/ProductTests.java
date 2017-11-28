@@ -37,9 +37,9 @@ public class ProductTests {
         int chips=stock.getStock(1);
         int cola=stock.getStock(2);
         int candy=stock.getStock(3);
-        assertEquals(chips,10);
-        assertEquals(cola,15);
-        assertEquals(candy,20);
+        assertEquals(10,chips);
+        assertEquals(15,cola);
+        assertEquals(20,candy);
 
 
     }
@@ -48,6 +48,35 @@ public class ProductTests {
     Product stock =new Product();
     stock.dispense(1);
     int chips= stock.getStock(1);
-    assertEquals(chips,4);
+    assertEquals(4,chips);
+    }
+
+    @Test
+    public void GivenUserSelectsColaThreeTimesreduceStockBy3(){
+        Product stock =new Product();
+        stock.setStock(2,15);
+        stock.dispense(2);
+        stock.dispense(2);
+        stock.dispense(2);
+        int cola=stock.getStock(2);
+        assertEquals(12,cola);
+    }
+    @Test
+    public void GivenUserSelectsCandyTenTimesreduceStockBy10(){
+        Product stock =new Product();
+        stock.setStock(3,20);
+        stock.dispense(3);
+        stock.dispense(3);
+        stock.dispense(3);
+        stock.dispense(3);
+        stock.dispense(3);
+        stock.dispense(3);
+        stock.dispense(3);
+        stock.dispense(3);
+        stock.dispense(3);
+        stock.dispense(3);
+
+        int candy=stock.getStock(3);
+        assertEquals(10,candy);
     }
 }
