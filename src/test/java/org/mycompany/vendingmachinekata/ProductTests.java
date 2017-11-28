@@ -79,4 +79,65 @@ public class ProductTests {
         int candy=stock.getStock(3);
         assertEquals(10,candy);
     }
+    @Test
+    public void GivenUserselectschipsSoldOutReturnitsStatus(){
+        Product stock =new Product();
+        stock.setSoldOut(1);
+        assertEquals(true,stock.getSoldOut(1));
+
+    }
+    @Test
+    public void GivenUserselectschipsSoldOutReturnitsStocktobeZero(){
+        Product stock =new Product();
+        stock.setSoldOut(1);
+        assertEquals(0,stock.getStock(1));
+
+    }
+    @Test
+    public void GivenUserselectschipsSoldOutandunselectsSoldoutReturnitsStocktobedefault(){
+        Product stock =new Product();
+        int original = stock.getStock(1);
+        stock.setSoldOut(1);
+        stock.setSoldOut(1);
+        int updated=stock.getStock(1);
+        assertEquals(original,updated);
+
+    }
+    @Test
+    public void GivenUserselectscolaSoldOutReturnitsStocktobeZero(){
+        Product stock =new Product();
+        stock.setSoldOut(2);
+        assertEquals(0,stock.getStock(2));
+
+    }
+    @Test
+    public void GivenUserselectscolaSoldOutandunselectsSoldoutReturnitsStocktobedefault(){
+        Product stock =new Product();
+        int original = stock.getStock(2);
+        stock.setSoldOut(1);
+        stock.setSoldOut(1);
+        int updated=stock.getStock(2);
+        assertEquals(original,updated);
+
+    }
+    @Test
+    public void GivenUserselectscandySoldOutReturnitsStocktobeZero(){
+        Product stock =new Product();
+        stock.setSoldOut(3);
+        assertEquals(0,stock.getStock(3));
+
+    }
+    @Test
+    public void GivenUserselectscandySoldOutandunselectsSoldoutReturnitsStocktobedefault(){
+        Product stock =new Product();
+        int original = stock.getStock(3);
+        stock.setSoldOut(1);
+        stock.setSoldOut(1);
+        int updated=stock.getStock(3);
+        assertEquals(original,updated);
+
+    }
+
+
+
 }
