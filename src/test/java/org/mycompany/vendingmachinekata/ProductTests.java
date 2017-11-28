@@ -44,7 +44,10 @@ public class ProductTests {
 
     }
     @Test
-    public void GivenUserSelectsStockReduceStockBy1(){
-        
+    public void GivenUserSelectsChipsReduceStockBy1(){
+    Product stock =new Product();
+    stock.dispense(1);
+    int chips= stock.getStock(1);
+    assertEquals(chips,4);
     }
 }
