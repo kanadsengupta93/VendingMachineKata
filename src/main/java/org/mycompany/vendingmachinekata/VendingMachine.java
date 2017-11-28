@@ -10,7 +10,9 @@ public class VendingMachine {
     private boolean exactChange = false;
     private int coinValues[] = {5, 10, 25};
     private int value = 0;
+    private int oldvalue = 0;
     private double productPrice = 0;
+    private ArrayList<Integer> coinList = new ArrayList<Integer>();
     private ArrayList<Integer> returnCoins = new ArrayList<Integer>();
 
     public boolean getCoinStatus() {
@@ -18,27 +20,52 @@ public class VendingMachine {
     }
 
     public boolean checkEnoughMoney() {
-        if (this.value >= this.productPrice) {
-            this.enoughMoney = true;
+        if (this.exactChange == false) {
+            if (this.value >= this.productPrice) {
+                this.enoughMoney = true;
+            }
+        } else {
+
+            if (this.value == this.productPrice) {
+                this.enoughMoney = true;
+            } else if (this.value > this.productPrice) {
+
+                this.enoughMoney = false;
+                int length = this.coinList.size();
+                int coin = this.coinList.remove(length - 1);
+                printStatus();
+                this.value = this.oldvalue;
+                this.returnCoins.add(coin);
+
+            }
         }
         return this.enoughMoney;
     }
 
+
     public void insertCoin(int size) {
-        if (size != 2) {
-            this.insertCoin = true;
-            if (size == 5) {
 
-                this.value += coinValues[0];
-            } else if (size == 3) {
-                this.value += coinValues[1];
+        if (this.enoughMoney == false) {
+            if (size != 2) {
+                this.insertCoin = true;
+                this.oldvalue = this.value;
+
+                if (size == 5) {
+                    this.value += coinValues[0];
+                } else if (size == 3) {
+                    this.value += coinValues[1];
+                } else {
+                    this.value += coinValues[2];
+                }
+                coinList.add(size);
             } else {
-                this.value += coinValues[2];
+                returnCoins.add(size);
             }
-
         } else {
             returnCoins.add(size);
         }
+        checkEnoughMoney();
+        System.out.println(printStatus());
 
     }
 
@@ -62,6 +89,7 @@ public class VendingMachine {
         this.productPrice = v;
     }
 
+
     public ArrayList<Integer> calculateCoins() {
         int difference = (int) (this.value - this.productPrice);
 
@@ -71,7 +99,6 @@ public class VendingMachine {
         difference %= 10;
 
         int numberofNickels = difference / 5;
-        difference %= 5;
 
 
         int i = 0;
@@ -100,13 +127,15 @@ public class VendingMachine {
         return this.productPrice;
     }
 
-    public void dispenseProduct() {
+    public String dispenseProduct() {
+        String dispensed = "Your product has not been dispensed";
         if (this.enoughMoney) {
-            System.out.println("Your product has been dispensed");
+            dispensed = "Your product has been dispensed";
             this.productPrice = 0;
             this.insertCoin = false;
             calculateCoins();
         }
+        return dispensed;
     }
 
     public boolean getExactChangeStatus() {
@@ -114,11 +143,9 @@ public class VendingMachine {
     }
 
     public void setExactChangeStatus() {
-        if (this.exactChange == false) {
-            this.exactChange = true;
-        } else {
-            this.exactChange = false;
-        }
+
+        this.exactChange = !this.exactChange;
+
 
     }
 
