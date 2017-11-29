@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class VendingMachineTests {
+public class VendingMachineTest {
     @Test
     public void GivenUserHasNotEnteredCoinReturnFalse() {
         VendingMachine vendingMachine = new VendingMachine();
