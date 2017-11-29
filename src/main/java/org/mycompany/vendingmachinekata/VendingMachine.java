@@ -10,13 +10,17 @@ public class VendingMachine {
     private boolean exactChange = false;
     private int coinValues[] = {5, 10, 25};
     private int value = 0;
-    private int oldvalue = 0;
+    private int oldValue = 0;
     private double productPrice = 0;
     private ArrayList<Integer> coinList = new ArrayList<Integer>();
     private ArrayList<Integer> returnCoins = new ArrayList<Integer>();
 
     public boolean getCoinStatus() {
         return this.insertCoin;
+    }
+
+    public boolean getenoughMoney() {
+        return this.enoughMoney;
     }
 
     public boolean checkEnoughMoney() {
@@ -34,7 +38,7 @@ public class VendingMachine {
                 int length = this.coinList.size();
                 int coin = this.coinList.remove(length - 1);
                 printStatus();
-                this.value = this.oldvalue;
+                this.value = this.oldValue;
                 this.returnCoins.add(coin);
 
             }
@@ -48,7 +52,7 @@ public class VendingMachine {
         if (this.enoughMoney == false) {
             if (size != 2) {
                 this.insertCoin = true;
-                this.oldvalue = this.value;
+                this.oldValue = this.value;
 
                 if (size == 5) {
                     this.value += coinValues[0];
@@ -134,12 +138,25 @@ public class VendingMachine {
             this.productPrice = 0;
             this.insertCoin = false;
             calculateCoins();
+            this.value = 0;
+            this.oldValue = 0;
+            this.enoughMoney = false;
+            this.coinList.clear();
+            this.returnCoins.clear();
         }
         return dispensed;
     }
 
     public boolean getExactChangeStatus() {
         return this.exactChange;
+    }
+
+    public String printExactChangeStatus() {
+        if (this.exactChange) {
+            return "on";
+        } else {
+            return "off";
+        }
     }
 
     public void setExactChangeStatus() {

@@ -36,10 +36,11 @@ public class CoinTest {
         int choice = 4;
         assertEquals(6, coin.getSize(choice));
     }
+
     @Test
-    public void GivenUserEntersListOfCoinsReturnCoinSizewithAssociatedName(){
-        Coin coin=new Coin();
-        ArrayList<Integer> coins=new ArrayList<Integer>();
+    public void GivenUserEntersListOfCoinsReturnCoinSizewithAssociatedName() {
+        Coin coin = new Coin();
+        ArrayList<Integer> coins = new ArrayList<Integer>();
         coins.add(2);
         coins.add(2);
         coins.add(2);
@@ -58,12 +59,12 @@ public class CoinTest {
         coins.add(6);
         coins.add(6);
         coins.add(6);
-        HashMap<String,Integer> values=new HashMap<String,Integer>();
-        values.put("Pennies",3);
-        values.put("Nickels",4);
-        values.put("Dimes",3);
-        values.put("Quarters",8);
-        assertEquals(values,coin.getChange(coins));
+        HashMap<String, Integer> values = new HashMap<String, Integer>();
+        values.put("Pennies", 3);
+        values.put("Nickels", 4);
+        values.put("Dimes", 3);
+        values.put("Quarters", 8);
+        assertEquals(values, coin.getChange(coins));
 
 
     }
